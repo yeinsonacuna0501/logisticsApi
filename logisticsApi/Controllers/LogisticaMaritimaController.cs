@@ -5,9 +5,11 @@ using logisticsApi.Repositories.IRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using logisticsApi.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace logisticsApi.Controllers
 {
+    [Authorize]
     [Route("api/logisticaMaritima")]
     [ApiController]
     public class LogisticaMaritimaController : ControllerBase

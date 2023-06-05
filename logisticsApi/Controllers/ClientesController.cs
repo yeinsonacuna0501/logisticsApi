@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace logisticsApi.Controllers
 {
-    
+
+    [Authorize]
     [ApiController]
     //[Route("api/[controller]")]
     [Route("api/clientes")]
@@ -22,7 +23,7 @@ namespace logisticsApi.Controllers
             _mapper = mapper;
         }
 
-        [AllowAnonymous] 
+        //[AllowAnonymous] 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -39,7 +40,7 @@ namespace logisticsApi.Controllers
             return Ok(listaClientesDto);
         }
 
-        [AllowAnonymous]
+       // [AllowAnonymous]
         [HttpGet("{clienteId:int}", Name ="GetCliente")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -90,7 +91,6 @@ namespace logisticsApi.Controllers
 
         }
 
-        [Authorize]
         [HttpPatch("{clienteId:int}", Name = "ActualizarPatchCliente")]
         [ProducesResponseType(201, Type = typeof(ClientesDto))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -117,7 +117,6 @@ namespace logisticsApi.Controllers
 
         }
 
-        [Authorize]
         [HttpDelete("{clienteId:int}", Name = "BorrarCliente")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

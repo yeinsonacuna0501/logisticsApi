@@ -1,0 +1,8 @@
+code firts comando
+
+1. add-migration CreacionTablas
+2. update-database
+
+ng generate component principal
+localStorage.setItem('token', token);
+const token = localStorage.getItem('token');
